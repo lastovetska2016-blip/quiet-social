@@ -1,0 +1,79 @@
+/* Скидання */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Основний фон – градієнт */
+body {
+  background: linear-gradient(145deg, #e8f0ff 0%, #f9f5ff 100%);
+  font-family: "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Псевдоелемент з кольоровими плямами (лише фон) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 10% 20%,
+      rgba(180, 210, 250, 0.5) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(200, 180, 240, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 60%,
+      rgba(150, 200, 240, 0.4) 0%,
+      transparent 45%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Весь контент має бути поверх псевдоелемента */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Стилізація скролу */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.post-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+}
+
+.post-video {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 16px;
+  margin-top: 10px;
+  background-color: #000;
+}
